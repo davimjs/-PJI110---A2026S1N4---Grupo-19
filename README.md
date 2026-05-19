@@ -8,7 +8,7 @@ O projeto contempla fluxo para cliente cadastrado, agendamento sem cadastro e pa
 
 ## Objetivo
 
-O sistema foi criado para permitir que clientes possam agendar serviços como corte, barba e corte + barba, respeitando a disponibilidade de horários.
+o sistema foi criado para permitir que clientes possam agendar serviços como corte, barba e corte + barba, respeitando a disponibilidade de horários.
 
 Além disso, o sistema possui um painel administrativo para acompanhar agendamentos, alterar status de pagamento, gerenciar serviços e excluir registros.
 
