@@ -1,0 +1,580 @@
+
+/* styles.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  background-image: url('../img/fundo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+
+  margin: 0;
+
+  overflow-y: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  width: 100%;
+
+  background: rgba(0,0,0,0.75);
+
+  padding: 4px 40px;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+header h1 {
+  color: white;
+
+  font-size: 24px;
+}
+
+header nav {
+  display: flex;
+
+  gap: 20px;
+}
+
+header nav a {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 13px;
+}
+
+header nav a:hover {
+  color: #4facfe;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 100%;
+
+  padding-top: 75px;
+  padding-bottom: 70px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  width: 100%;
+
+  background: rgba(0,0,0,0.75);
+
+  color: white;
+
+  text-align: center;
+
+  padding: 3px;
+
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  z-index: 100;
+}
+
+.footer-container {
+  font-size: 14px;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-container {
+  background: rgba(255, 255, 255, 0.295);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  padding: 1.2rem;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  width: 500px;
+
+  margin-bottom: 80px;
+}
+
+h2 {
+  text-align: center;
+
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+
+  margin-bottom: 0.3rem;
+
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+
+  padding: 0.6rem;
+
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
+
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+
+  padding: 0.6rem;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background-color: #4facfe;
+
+  color: white;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3a8dde;
+}
+
+/* =========================
+   CADASTRO
+========================= */
+
+.Cadastro_container {
+  background: rgba(255, 255, 255, 0.295);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  padding: 1.2rem;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  width: 400px;
+
+  margin-bottom: 80px;
+}
+
+/* =========================
+   AGENDAMENTO
+========================= */
+
+.agendamento-container {
+  background: rgba(255, 255, 255, 0.295);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  padding: 1.5rem;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  width: 520px;
+
+  max-width: 90%;
+
+  margin-bottom: 80px;
+}
+
+.agendamento-container h1,
+.agendamento-container h2 {
+  text-align: center;
+
+  margin-bottom: 1rem;
+}
+
+.agendamento-container form {
+  width: 100%;
+
+  margin-bottom: 0.8rem;
+}
+
+.agendamento-container select,
+.agendamento-container input {
+  width: 100%;
+
+  margin-bottom: 0.5rem;
+}
+
+.agendamento-container button {
+  margin-top: 0.5rem;
+}
+
+.disclaimer {
+  background-color: rgba(255, 243, 205, 0.95);
+
+  color: #856404;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  font-size: 0.9rem;
+
+  line-height: 1.4;
+
+  margin-bottom: 0.7rem;
+
+  text-align: center;
+}
+
+/* =========================
+   PAINEL
+========================= */
+
+.painel-container {
+  background: rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  width: 1400px;
+
+  max-width: 95%;
+
+  padding: 2rem;
+
+  border-radius: 14px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  margin-bottom: 80px;
+}
+
+.painel-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 2rem;
+}
+
+.painel-header h2 {
+  margin: 0;
+
+  font-size: 1.6rem;
+}
+
+.painel-acoes {
+  display: flex;
+
+  gap: 12px;
+}
+
+.btn-link {
+  background-color: #4facfe;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  padding: 10px 18px;
+
+  border-radius: 6px;
+
+  font-size: 0.9rem;
+}
+
+.btn-link:hover {
+  background-color: #3a8dde;
+}
+
+.btn-link.sair {
+  background-color: #e74c3c;
+}
+
+.btn-link.sair:hover {
+  background-color: #c0392b;
+}
+
+/* =========================
+   TABELAS
+========================= */
+
+.meus-agendamentos h3 {
+  margin-bottom: 1rem;
+}
+
+.meus-agendamentos table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background-color: #fff;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.meus-agendamentos th,
+.meus-agendamentos td {
+  padding: 12px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.meus-agendamentos th {
+  background-color: #4facfe;
+
+  color: white;
+}
+
+.meus-agendamentos thead th {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 2;
+}
+
+.sem-agendamento {
+  background: #fff;
+
+  padding: 1rem;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 0.85rem;
+
+  font-weight: bold;
+}
+
+.status-agendado {
+  background-color: #d9ecff;
+
+  color: #1f6fb2;
+}
+
+.status-cancelado {
+  background-color: #ffd6d6;
+
+  color: #b21f1f;
+}
+
+.status-concluido {
+  background-color: #d8f8df;
+
+  color: #1f7a35;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn-cancelar {
+  background-color: #e74c3c;
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 7px 12px;
+
+  border-radius: 6px;
+
+  font-size: 0.85rem;
+}
+
+.btn-cancelar:hover {
+  background-color: #c0392b;
+}
+
+.btn-salvar-status {
+  margin-top: 6px;
+
+  padding: 6px 10px;
+
+  font-size: 0.8rem;
+
+  border-radius: 5px;
+}
+
+/* =========================
+   FORM SERVIÇOS
+========================= */
+
+.form-servico {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.form-servico input {
+  padding: 5px;
+
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
+}
+
+.form-servico button {
+  width: auto;
+
+  padding: 8px 16px;
+}
+
+/* =========================
+   TABELA INPUTS
+========================= */
+
+.meus-agendamentos table input,
+.meus-agendamentos table select {
+  width: 100%;
+
+  padding: 4px;
+
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
+}
+
+/* =========================
+   SCROLL TABELA
+========================= */
+
+.tabela-scroll {
+  max-height: calc(100vh - 430px);
+
+  overflow-y: auto;
+
+  overflow-x: auto;
+
+  border-radius: 8px;
+}
+
+/* =========================
+   FILTROS
+========================= */
+
+.form-filtros {
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 20px;
+}
+
+.form-filtros button {
+  width: auto;
+
+  min-width: 120px;
+
+  padding: 10px 18px;
+}
+
+.form-filtros .btn-link {
+  width: auto;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 10px 18px;
+}
+
+
+/* =========================
+   Botoes de links
+========================= */
+
+.card_links {
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+.card_links a {
+  display: block;
+  color: #4facfe;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.card_links a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Salão de Beleza</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+
+            <h1>Salão de Beleza</h1>
+
+<nav>
+    <a href="/">Início</a>
+
+    {% if request.session.admin_logado %}
+
+        <a href="/admin-painel/">Painel Admin</a>
+        <a href="/admin-servicos/">Serviços</a>
+        <a href="/logout-admin/">Sair Admin</a>
+
+    {% elif request.session.cliente_id %}
+
+        <a href="/painel/">Painel</a>
+        <a href="/meu-agendamento/">Agendar</a>
+        <a href="/logout/">Sair</a>
+
+    {% else %}
+
+        <a href="/login/">Login</a>
+        <a href="/cadastro/">Cadastro</a>
+        <a href="/agendar/">Agendar</a>
+        <a href="/login-admin/">Admin</a>
+
+    {% endif %}
+</nav>
+
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>
+                © PJI110 - A2026S1N4 - Grupo 19 - Todos os direitos reservados
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

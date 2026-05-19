@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="painel-container">
+
+    <section class="painel-header">
+
+        <h2>Painel Administrativo</h2>
+
+    </section>
+
+    <section class="meus-agendamentos">
+
+        <form action="/admin-painel/" method="GET" class="form-filtros">
+
+            <input
+                type="date"
+                name="data"
+                value="{{ data_filtro }}"
+            >
+
+            <select name="status">
+
+                <option value="">
+                    Todos os status
+                </option>
+
+                <option
+                    value="Agendado"
+                    {% if status_filtro == 'Agendado' %}selected{% endif %}
+                >
+                    Agendado
+                </option>
+
+                <option
+                    value="Concluido"
+                    {% if status_filtro == 'Concluido' %}selected{% endif %}
+                >
+                    Concluído
+                </option>
+
+                <option
+                    value="Cancelado"
+                    {% if status_filtro == 'Cancelado' %}selected{% endif %}
+                >
+                    Cancelado
+                </option>
+
+            </select>
+
+            <select name="status_pagamento">
+
+                <option value="">
+                    Todos os pagamentos
+                </option>
+
+                <option
+                    value="Pendente"
+                    {% if pagamento_filtro == 'Pendente' %}selected{% endif %}
+                >
+                    Pendente
+                </option>
+
+                <option
+                    value="Pago antecipadamente"
+                    {% if pagamento_filtro == 'Pago antecipadamente' %}selected{% endif %}
+                >
+                    Pago antecipadamente
+                </option>
+
+                <option
+                    value="Pago"
+                    {% if pagamento_filtro == 'Pago' %}selected{% endif %}
+                >
+                    Pago
+                </option>
+
+                <option
+                    value="Fiado"
+                    {% if pagamento_filtro == 'Fiado' %}selected{% endif %}
+                >
+                    Fiado
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Filtrar
+            </button>
+
+            <a href="/admin-painel/" class="btn-link">
+                Limpar
+            </a>
+
+        </form>
+
+<div class="tabela-scroll">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Cliente</th>
+                <th>Serviço</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Status</th>
+                <th>Pagamento</th>
+                <th>Ação</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for agendamento in agendamentos %}
+
+                <tr>
+
+                    <td>
+                        {{ agendamento.cliente.nome }}
+                    </td>
+
+                    <td>
+                        {{ agendamento.servico.descricao }}
+                    </td>
+
+                    <td>
+                        {{ agendamento.data_agendamento|date:"d/m/Y" }}
+                    </td>
+
+                    <td>
+                        {{ agendamento.horario_agendamento|time:"H:i" }}
+                    </td>
+
+                    <td>
+
+                        <span class="status status-{{ agendamento.status|lower }}">
+
+                            {{ agendamento.status }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <form
+                            action="/atualizar-pagamento/{{ agendamento.id }}/"
+                            method="POST"
+                        >
+
+                            {% csrf_token %}
+
+                            <select name="status_pagamento">
+
+                                <option
+                                    value="Pendente"
+                                    {% if agendamento.status_pagamento == 'Pendente' %}selected{% endif %}
+                                >
+                                    Pendente
+                                </option>
+
+                                <option
+                                    value="Pago antecipadamente"
+                                    {% if agendamento.status_pagamento == 'Pago antecipadamente' %}selected{% endif %}
+                                >
+                                    Pago antecipadamente
+                                </option>
+
+                                <option
+                                
+                                    value="Pago"
+                                    {% if agendamento.status_pagamento == 'Pago' %}selected{% endif %}
+                                >
+                                    Pago
+                                </option>
+
+                                <option
+                                    value="Fiado"
+                                    {% if agendamento.status_pagamento == 'Fiado' %}selected{% endif %}
+                                >
+                                    Fiado
+                                </option>
+
+                            </select>
+
+                            <button
+                                type="submit"
+                                class="btn-salvar-status"
+                            >
+                                Salvar
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="/excluir-agendamento/{{ agendamento.id }}/"
+                            class="btn-cancelar"
+                            onclick="return confirm('Deseja excluir este agendamento?')"
+                        >
+                            Excluir
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+    </section>
+
+</div>
+
+{% endblock %}

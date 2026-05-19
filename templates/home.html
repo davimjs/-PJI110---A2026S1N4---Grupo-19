@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <h2>Bem-vindo</h2>
+
+    <form action="/login/" method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Digite seu email"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Senha</label>
+
+            <input
+                type="password"
+                name="senha"
+                placeholder="Digite sua senha"  
+            >
+
+        </div>
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <div class="card_links">
+
+        <a href="/cadastro/">
+            Cadastrar-se
+        </a>
+
+        <br><br>
+
+        <a href="/agendar/">
+            Agendar sem cadastro
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

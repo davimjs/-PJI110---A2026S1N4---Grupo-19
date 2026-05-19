@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="agendamento-container">
+
+    <section>
+        <h1>Fazer agendamento</h1>
+
+        <form action="/meu-agendamento/" method="GET">
+            <label for="data_agendamento">Escolha a data:</label>
+
+            <input
+                type="date"
+                id="data_agendamento"
+                name="data_agendamento"
+                value="{{ data_selecionada }}"
+                required
+            >
+
+            <button type="submit">
+                Buscar horários
+            </button>
+        </form>
+    </section>
+
+    {% if data_selecionada %}
+
+        <section>
+            <h2>Dados do agendamento</h2>
+
+            <form action="/salvar-agendamento-cliente/" method="POST">
+
+                {% csrf_token %}
+
+                <input
+                    type="hidden"
+                    name="data_agendamento"
+                    value="{{ data_selecionada }}"
+                >
+
+                <label for="servico">Serviço:</label>
+
+                <select id="servico" name="servico" required>
+                    <option value="">Selecione um serviço</option>
+
+                    {% for servico in servicos %}
+                        <option value="{{ servico.id }}">
+                            {{ servico.descricao }} - {{ servico.duracao }} min
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <br><br>
+
+                <label for="horario_agendamento">Horário:</label>
+
+                <select
+                    id="horario_agendamento"
+                    name="horario_agendamento"
+                    required
+                >
+                    <option value="">Selecione um horário</option>
+
+                    {% for horario in horarios_disponiveis %}
+                        <option value="{{ horario }}">
+                            {{ horario }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <br><br>
+
+                <button type="submit">
+                    Confirmar agendamento
+                </button>
+
+            </form>
+        </section>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

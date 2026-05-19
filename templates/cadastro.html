@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="Cadastro_container">
+
+    <h2>Cadastrar-se</h2>
+
+    {% if erro %}
+
+    <p style="color:red; text-align:center; margin-bottom:15px;">
+        {{ erro }}
+    </p>
+
+{% endif %}
+
+    <form action="/cadastro/" method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmar_senha">Confirmar senha</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required>
+        </div>
+
+        <button type="submit">
+            Cadastrar
+        </button>
+
+    </form>
+
+    <div class="card_links">
+        <a href="/">Já tenho conta</a>
+        <br><br>
+        <a href="/agendar/">Agendar sem cadastro</a>
+    </div>
+
+</div>
+
+{% endblock %}

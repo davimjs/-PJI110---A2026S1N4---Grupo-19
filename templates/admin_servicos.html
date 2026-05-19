@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="painel-container">
+
+    <section class="painel-header">
+        <h2>Gerenciar Serviços</h2>
+
+        <div class="painel-acoes">
+            <a href="/admin-painel/" class="btn-link">Voltar</a>
+        </div>
+    </section>
+
+    <section class="meus-agendamentos">
+
+        <h3>Novo serviço</h3>
+
+        <form action="/criar-servico/" method="POST" class="form-servico">
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="descricao"
+                placeholder="Descrição do serviço"
+                required
+            >
+
+            <input
+                type="number"
+                name="duracao"
+                placeholder="Duração em minutos"
+                required
+            >
+
+            <button type="submit">
+                Criar serviço
+            </button>
+        </form>
+
+        <br>
+
+        <h3>Serviços disponíveis</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Serviço</th>
+                    <th>Duração</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for servico in servicos %}
+
+                    <tr>
+                        <form action="/atualizar-servico/{{ servico.id }}/" method="POST">
+                            {% csrf_token %}
+
+                            <td>
+                                <input
+                                    type="text"
+                                    name="descricao"
+                                    value="{{ servico.descricao }}"
+                                    required
+                                >
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    name="duracao"
+                                    value="{{ servico.duracao }}"
+                                    required
+                                >
+                            </td>
+
+                            <td>
+                                <button type="submit" class="btn-salvar-status">
+                                    Salvar
+                                </button>
+                            </td>
+                        </form>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </section>
+
+</div>
+
+{% endblock %}

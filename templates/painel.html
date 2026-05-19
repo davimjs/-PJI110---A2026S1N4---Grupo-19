@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="painel-container">
+
+    <section class="painel-header">
+        <h2>Bem-vindo, {{ cliente.nome }}</h2>
+
+        <div class="painel-acoes">
+            <a href="/meu-agendamento/" class="btn-link">Fazer agendamento</a>
+            <a href="/logout/" class="btn-link sair">Sair</a>
+        </div>
+    </section>
+
+    <section class="meus-agendamentos">
+
+        <h3>Meus agendamentos</h3>
+
+        {% if agendamentos %}
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+
+ <tbody>
+
+    {% for agendamento in agendamentos %}
+
+        <tr>
+
+            <td>
+                {{ agendamento.servico.descricao }}
+            </td>
+
+            <td>
+                {{ agendamento.data_agendamento|date:"d/m/Y" }}
+            </td>
+
+            <td>
+                {{ agendamento.horario_agendamento|time:"H:i" }}
+            </td>
+
+            <td>
+                <span class="status status-{{ agendamento.status|lower }}">
+                    {{ agendamento.status }}
+                </span>
+            </td>
+
+            <td>
+
+                {% if agendamento.status == 'Agendado' %}
+
+                    <a
+                        href="/cancelar-agendamento/{{ agendamento.id }}/"
+                        class="btn-cancelar"
+                    >
+                        Cancelar
+                    </a>
+
+                {% else %}
+
+                    -
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+</tbody>
+                
+            </table>
+
+        {% else %}
+
+            <p class="sem-agendamento">
+                Você ainda não possui agendamentos.
+            </p>
+
+        {% endif %}
+
+    </section>
+
+</div>
+
+{% endblock %}
