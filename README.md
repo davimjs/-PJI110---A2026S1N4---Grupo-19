@@ -93,5 +93,4 @@ Nesse fluxo, o acompanhamento pela plataforma não fica disponível. O cliente d
 
 ---
 
-## Estrutura principal do projeto
 
